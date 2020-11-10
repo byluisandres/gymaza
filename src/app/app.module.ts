@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,11 +27,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AccordionModule.forRoot(),
     ButtonsModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule,
   ],
-  providers: [
-    AngularFireAuth
-  ],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

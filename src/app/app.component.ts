@@ -7,17 +7,21 @@ import { auth, User } from 'firebase/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'mastergym';
   usuario: User;
   cargando: boolean = true;
 
   constructor(public auth: AngularFireAuth) {
     this.auth.user.subscribe((usuario) => {
-    this.cargando=false;
-      this.usuario = usuario;
+      setTimeout(() => {
+        this.cargando = false;
+        this.usuario = usuario;
+      }, 1000);
     });
   }
+
+
   login() {
     this.auth.signInWithEmailAndPassword(
       'luisandres33bolanos@gmail.com',
