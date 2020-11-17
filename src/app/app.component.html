@@ -13,6 +13,7 @@
 </div>
 
 <div *ngIf="usuario && !cargando; else showLogin">
+  <app-cabecera></app-cabecera>
   <h1>Hello {{ usuario.email }}!</h1>
   <button (click)="logout()">Logout</button>
 </div>

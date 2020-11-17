@@ -17,9 +17,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CabeceraComponent } from './components/cabecera/cabecera.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, CabeceraComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
