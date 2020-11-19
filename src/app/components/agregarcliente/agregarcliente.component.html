@@ -1,0 +1,77 @@
+<div class="container mt-3">
+  <!-- Default form login -->
+  <form class="text-center border border-light p-3" action="#!">
+    <p class="h4 mb-4">Añadir Clientes</p>
+
+    <!-- Nombre -->
+    <input
+      type="text"
+      id="nombre"
+      class="form-control mb-4"
+      placeholder="Nombre"
+      name="nombre"
+    />
+    <!-- Apellidos -->
+    <input
+      type="text"
+      id="apellidos"
+      class="form-control mb-4"
+      placeholder="Apellidos"
+      name="apellidos"
+    />
+
+    <!-- email -->
+    <input
+      type="email"
+      id="email"
+      class="form-control mb-4"
+      placeholder="email"
+      name="email"
+    />
+
+    <!-- dni -->
+    <input
+      type="text"
+      id="dni"
+      class="form-control mb-4"
+      placeholder="dni"
+      name="dni"
+    />
+    <!-- fecha nacimiento -->
+    <input
+      type="date"
+      id="fecha"
+      class="form-control mb-4"
+      placeholder="fecha nacimiento"
+      name="fecha"
+    />
+    <!-- telefono -->
+    <input
+      type="text"
+      id="telefono"
+      class="form-control mb-4"
+      placeholder="teléfono"
+      name="telefono"
+    />
+    <!-- imagen -->
+    <input
+      type="file"
+      id="imagen"
+      class="form-control mb-4"
+      placeholder="imagen"
+      name="imagen"
+    />
+    <!-- progresbar -->
+    <progressbar
+      max="100"
+      [value]="50"
+      type="success"
+      [striped]="true"
+      [animate]="true"
+      ><i>50 / 100</i></progressbar
+    >
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Añadir</button>
+  </form>
+  <!-- Default form login -->
+</div>

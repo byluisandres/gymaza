@@ -5,25 +5,25 @@
   </form>
   <br>
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" *ngFor="let cliente of clientes">
       <!-- Card -->
-      <div class="card">
+      <div class="card" >
         <!-- Card image -->
         <img
           class="card-img-top"
-          src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+          [src]="cliente.imgUrl"
           alt="Card image cap"
         />
 
         <!-- Card content -->
         <div class="card-body">
           <!-- Title -->
-          <h4 class="card-title"><a>Card title</a></h4>
+          <h4 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h4>
           <!-- Text -->
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+          <p class="card-text">Email: {{cliente.correo}}</p>
+          <p class="card-text">DNI: {{cliente.dni}}</p>
+          <p class="card-text">Fecha Nacimineto: {{cliente.fechaNacimiento}}</p>
+          <p class="card-text">Telefóno: {{cliente.telefono}}</p>
           <!-- Button -->
           <a href="#" class="card-link">Editar</a>
           <a href="#" class="card-link text-danger">Desactivar</a>

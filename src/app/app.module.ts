@@ -10,21 +10,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 //firebase
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
+import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
+import { BarralateralComponent } from './components/barralateral/barralateral.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CabeceraComponent, ListadoClientesComponent],
+  declarations: [AppComponent, LoginComponent, CabeceraComponent, ListadoClientesComponent, AgregarclienteComponent, BarralateralComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -33,11 +37,12 @@ import { ListadoClientesComponent } from './components/listado-clientes/listado-
     AccordionModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDropdownModule.forRoot(),
+    ProgressbarModule.forRoot(),
     ReactiveFormsModule,
     NgxSpinnerModule,
     FormsModule
   ],
-  providers: [AngularFireAuth],
+  providers: [AngularFireAuth,AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
