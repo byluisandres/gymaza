@@ -16,7 +16,7 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,7 +40,8 @@ import { BarralateralComponent } from './components/barralateral/barralateral.co
     ProgressbarModule.forRoot(),
     ReactiveFormsModule,
     NgxSpinnerModule,
-    FormsModule
+    FormsModule,
+    AngularFirestoreModule
   ],
   providers: [AngularFireAuth,AngularFirestore],
   bootstrap: [AppComponent],

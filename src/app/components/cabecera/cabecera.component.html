@@ -10,6 +10,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Inscripción </a>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="#">Ver inscripción </a>
       </li>
@@ -84,6 +85,7 @@
         </div>
       </li>
     </ul>
+
     <li class="nav-item dropdown" dropdown>
       <a
         class="nav-link dropdown-toggle"
@@ -92,17 +94,17 @@
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-        ></li>
+      >
         <span class="text-white">{{ usuario.email }}</span></a
       >
-      <div
-        class="dropdown-menu dropdown-primary"
-        *dropdownMenu
-        aria-labelledby="navbarDropdownMenuLink"
-      >
+    </li>
+    <div
+      class="dropdown-menu dropdown-primary"
+      *dropdownMenu
+      aria-labelledby="navbarDropdownMenuLink"
+    >
       <button class="btn btn-danger" (click)="logout()">Salir</button>
-      </div>
-
+    </div>
 
     <!-- Links -->
   </div>
