@@ -8,7 +8,7 @@ import { User } from 'firebase/app';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'mastergym';
+  title = 'Gymaza';
   usuario: User;
   cargando: boolean = true;
 
@@ -17,5 +17,8 @@ export class AppComponent {
       this.cargando = false;
       this.usuario = usuario;
     });
+  }
+  logout() {
+    this.auth.signOut();
   }
 }

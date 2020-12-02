@@ -16,19 +16,27 @@ import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreModule,
+} from '@angular/fire/firestore';
 
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
 import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
 import { BarralateralComponent } from './components/barralateral/barralateral.component';
 
 
-
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CabeceraComponent, ListadoClientesComponent, AgregarclienteComponent, BarralateralComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    ListadoClientesComponent,
+    AgregarclienteComponent,
+    BarralateralComponent,
+   
+  ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -41,9 +49,9 @@ import { BarralateralComponent } from './components/barralateral/barralateral.co
     ReactiveFormsModule,
     NgxSpinnerModule,
     FormsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
-  providers: [AngularFireAuth,AngularFirestore],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

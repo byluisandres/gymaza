@@ -1,20 +1,31 @@
-<!-- <div *ngIf="cargando" class="mt-5 d-flex justify-content-center">
-  <div class="spinner-grow text-primary" role="status"></div>
-  <div class="spinner-grow text-secondary" role="status"></div>
-  <div class="spinner-grow text-success" role="status"></div>
-  <div class="spinner-grow text-danger" role="status"></div>
-  <div class="spinner-grow text-warning" role="status"></div>
-  <div class="spinner-grow text-info" role="status"></div>
-  <div class="spinner-grow text-light" role="status"></div>
-  <div class="spinner-grow text-dark" role="status"></div>
-</div> -->
-<!-- <div class="container">
-  <app-login *ngIf="!cargando"></app-login>
-</div> -->
-
 <div *ngIf="usuario && !cargando; else showLogin">
-  <app-cabecera></app-cabecera>
-  <router-outlet></router-outlet>
+  <div class="d-flex">
+    <aside class="sidebar-container block bg-primary">
+      <div class="logo">
+        <h4>Gimaza</h4>
+      </div>
+      <div class="menu mt-5">
+        <app-barralateral></app-barralateral>
+      </div>
+    </aside>
+
+    <div class="w-100">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" id="menuBoton">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul class="navbar-nav mr-auto">
+          <li>
+            <button class="btn btn-danger" (click)="logout()">Salir</button>
+          </li>
+        </ul>
+      </nav>
+      <div id="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
 <ng-template #showLogin>
   <div class="container">

@@ -9,6 +9,10 @@ const routes: Routes = [
     component: ListadoClientesComponent,
   },
   {
+    path: 'añadir-clientes/:clienteID',
+    component: AgregarclienteComponent,
+  },
+  {
     path: 'añadir-clientes',
     component: AgregarclienteComponent,
   },

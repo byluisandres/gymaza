@@ -1,35 +1,57 @@
-<div class="container mt-3">
-  <h4>Listado de Clientes</h4>
-  <form class="" action="" method="POST">
-    <input type="text" class="form-control" placeholder="Buscar cliente">
-  </form>
-  <br>
-  <div class="row">
-    <div class="col-sm-3" *ngFor="let cliente of clientes">
-      <!-- Card -->
-      <div class="card" >
-        <!-- Card image -->
-        <img
-          class="card-img-top"
-          [src]="cliente.imgUrl"
-          alt="Card image cap"
-        />
 
-        <!-- Card content -->
-        <div class="card-body">
-          <!-- Title -->
-          <h4 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h4>
-          <!-- Text -->
-          <p class="card-text">Email: {{cliente.correo}}</p>
-          <p class="card-text">DNI: {{cliente.dni}}</p>
-          <p class="card-text">Fecha Nacimineto: {{cliente.fechaNacimiento}}</p>
-          <p class="card-text">Telefóno: {{cliente.telefono}}</p>
-          <!-- Button -->
-          <a href="#" class="card-link">Editar</a>
-          <a href="#" class="card-link text-danger">Desactivar</a>
+  <section class="p-3">
+    <div class="container-fluid mt-3 ">
+      <h4>Listado de Clientes</h4>
+      <div class="row">
+        <div class="col-md-12">
+          <form class="" action="" method="POST">
+            <input
+              type="text"
+              class="form-control mb-2"
+              placeholder="Buscar cliente"
+            />
+          </form>
+          <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Imágen</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Dni</th>
+                  <th scope="col">Fecha Nacimiento</th>
+                  <th scope="col">Teléfono</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cliente of clientes">
+                  <td>
+                    <img
+                      class="img-fluid"
+                      [src]="cliente.imgUrl"
+                      [alt]="cliente.nombre"
+                      width="60"
+                    />
+                  </td>
+                  <td>{{ cliente.nombre }} {{ cliente.apellido }}</td>
+                  <td>{{ cliente.correo }}</td>
+                  <td>{{ cliente.dni }}</td>
+                  <td>{{ cliente.fechaNacimiento }}</td>
+                  <td>{{ cliente.telefono }}</td>
+                  <td>
+                    <a
+                      [routerLink]="['/añadir-clientes/', cliente.id]"
+                      class="btn btn-info mr-2"
+                      ><i class="fas fa-user-edit"></i
+                    ></a>
+                    <a href="#" class="btn btn-danger">Desactivar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <!-- Card -->
     </div>
-  </div>
-</div>
+  </section>
+
