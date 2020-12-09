@@ -15,6 +15,8 @@ export class AgregarclienteComponent implements OnInit {
   textImg: string = '';
   porcentajeSubida: number = 0;
   urlImagen: string = '';
+  esEditable: boolean = false;
+  id: string = '';
   constructor(
     private fb: FormBuilder,
     private storage: AngularFireStorage,
@@ -33,25 +35,29 @@ export class AgregarclienteComponent implements OnInit {
       imgUrl: ['', Validators.required],
     });
 
-    let id = this.activeRoute.snapshot.params.clienteID;
-    this.db
-      .doc<any>('clientes/' + id)
-      .valueChanges()
-      .subscribe((cliente) => {
-        console.log(cliente);
-        this.formularioCliente.setValue({
-          nombre: cliente.nombre,
-          apellido: cliente.apellido,
-          correo: cliente.correo,
-          dni: cliente.dni,
-          fechaNacimiento: cliente.fechaNacimiento,
-          telefono: cliente.telefono,
-          imgUrl: cliente.imgUrl,
+    this.id = this.activeRoute.snapshot.params.clienteID;
+    if (this.id != undefined) {
+      this.esEditable = true;
+      this.db
+        .doc<any>('clientes/' + this.id)
+        .valueChanges()
+        .subscribe((cliente) => {
+          this.formularioCliente.setValue({
+            nombre: cliente.nombre,
+            apellido: cliente.apellido,
+            correo: cliente.correo,
+            dni: cliente.dni,
+            fechaNacimiento: new Date(cliente.fechaNacimiento.seconds * 1000)
+              .toISOString()
+              .substr(0, 10),
+            telefono: cliente.telefono,
+            imgUrl: cliente.imgUrl,
+          });
         });
-      });
+    }
   }
 
-  agregar(event) {
+  agregar() {
     this.formularioCliente.value.imgUrl = this.urlImagen;
     this.formularioCliente.value.fechaNacimiento = new Date(
       this.formularioCliente.value.fechaNacimiento
@@ -67,11 +73,47 @@ export class AgregarclienteComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         });
+      })
+      .catch(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No se pudo registrar el cliente, inténtalo más tarde',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
 
-      this.formularioCliente.reset();
+    this.formularioCliente.reset();
   }
 
+  editar() {
+    this.formularioCliente.value.imgUrl = this.urlImagen;
+    this.formularioCliente.value.fechaNacimiento = new Date(
+      this.formularioCliente.value.fechaNacimiento
+    );
+    this.db
+      .doc('clientes/' + this.id)
+      .update(this.formularioCliente.value)
+      .then((finalizo) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Cliente actualizado',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'No se pudo actualizar, inténtalo más tarde',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  }
   subirImagen(event: { target: { files: string | any[] } }) {
     if (event.target.files.length > 0) {
       let nombre = new Date().getTime().toString();

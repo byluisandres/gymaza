@@ -162,8 +162,19 @@
       type="submit"
       (click)="agregar()"
       [disabled]="formularioCliente.invalid"
+      *ngIf="!esEditable"
     >
       Añadir
+    </button>
+      <!-- Sign in button -->
+      <button
+      class="btn btn-success btn-block my-4"
+      type="submit"
+      (click)="editar()"
+     
+      *ngIf="esEditable"
+    >
+     Editar
     </button>
   </form>
   <!-- Default form login -->

@@ -1,0 +1,48 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-lg-8">
+      <h4>Lista de Precios</h4>
+      <table class="table table-striped">
+        <thead class="black white-text">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Duración</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let precio of precios">
+            <td>{{precio.nombre}}</td>
+            <td>{{precio.precio | currency:"EUR":"€"}}</td>
+            <td>{{precio.duracion}} - {{precio.tipoDuracion}}</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-4">
+      <h4>Agregar/Editar</h4>
+      <form method="POST" [formGroup]="formularioPrecio">
+        <input type="text" name="nombre" formControlName="nombre" id="nombre" class="form-control mb-4"
+          placeholder="Nombre" />
+        <input type="number" name="precio" formControlName="precio" id="precio" class="form-control mb-4"
+          placeholder="Precio" />
+        <input type="number" name="duracion" formControlName="duracion" id="duracion" class="form-control mb-4"
+          placeholder="Tiempo que dura el precio" />
+        <select name="tipoDuracion" formControlName="tipoDuracion" id="tipoDuracion" class="form-control mb-4">
+          <option selected disabled>-- Selecciona --</option>
+          <option value="1">Día</option>
+          <option value="2">Semana</option>
+          <option value="3">Mes</option>
+          <option value="4">Año</option>
+        </select>
+
+        <input type="submit" [disabled]="formularioPrecio.invalid" value="Añadir" class="btn btn-teal btn-block mb-2"
+          (click)="agregar()">
+
+        <input type="submit" [disabled]="formularioPrecio.invalid" value="Editar" class="btn btn-blue btn-block">
+      </form>
+    </div>
+  </div>
+</div>
