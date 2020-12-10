@@ -11,10 +11,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let precio of precios">
-            <td>{{precio.nombre}}</td>
+          <tr *ngFor="let precio of precios" style="cursor: pointer;">
+
+            <td (click)="editarPrecio(precio)">{{precio.nombre}}</td>
             <td>{{precio.precio | currency:"EUR":"€"}}</td>
-            <td>{{precio.duracion}} - {{precio.tipoDuracion}}</td>
+            <td>
+              {{precio.duracion}} {{ precio.tipoDuracion===1 ? "Día":null }}
+              {{ precio.tipoDuracion===2 ? "Semana":null }}
+              {{ precio.tipoDuracion===3 ? "Mes":null }} {{ precio.tipoDuracion===4 ? "Año":null }}
+            </td>
 
           </tr>
 
@@ -38,10 +43,11 @@
           <option value="4">Año</option>
         </select>
 
-        <input type="submit" [disabled]="formularioPrecio.invalid" value="Añadir" class="btn btn-teal btn-block mb-2"
-          (click)="agregar()">
+        <input type="submit" *ngIf="!esEditar" [disabled]="formularioPrecio.invalid" value="Añadir"
+          class="btn btn-teal btn-block mb-2" (click)="agregar()">
 
-        <input type="submit" [disabled]="formularioPrecio.invalid" value="Editar" class="btn btn-blue btn-block">
+        <input type="submit" *ngIf="esEditar" [disabled]="formularioPrecio.invalid" value="Editar"
+          class="btn btn-blue btn-block" (click)="editar()">
       </form>
     </div>
   </div>

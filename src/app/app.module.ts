@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
 import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
 import { BarralateralComponent } from './components/barralateral/barralateral.component';
-import { PreciosComponent } from './precios/precios.component';
+import { PreciosComponent } from './components/precios/precios.component';
 
 
 @NgModule({
@@ -37,7 +37,7 @@ import { PreciosComponent } from './precios/precios.component';
     AgregarclienteComponent,
     BarralateralComponent,
     PreciosComponent,
-   
+
   ],
   imports: [
     BrowserModule,
