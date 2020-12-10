@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
+import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
 import { PreciosComponent } from './components/precios/precios.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'inscripcion',
+    pathMatch: 'full',
+  },
+  {
+    path: 'inscripcion',
+    component: InscripcionComponent,
+  },
   {
     path: 'listado-clientes',
     component: ListadoClientesComponent,
@@ -18,9 +28,9 @@ const routes: Routes = [
     component: AgregarclienteComponent,
   },
   {
-    path:'precios',
-    component:PreciosComponent,
-  }
+    path: 'precios',
+    component: PreciosComponent,
+  },
 ];
 
 @NgModule({

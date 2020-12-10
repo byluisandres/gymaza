@@ -27,6 +27,8 @@ import { ListadoClientesComponent } from './components/listado-clientes/listado-
 import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
 import { BarralateralComponent } from './components/barralateral/barralateral.component';
 import { PreciosComponent } from './components/precios/precios.component';
+import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
+import { SeleccionarClienteComponent } from './components/seleccionar-cliente/seleccionar-cliente.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { PreciosComponent } from './components/precios/precios.component';
     AgregarclienteComponent,
     BarralateralComponent,
     PreciosComponent,
+    InscripcionComponent,
+    SeleccionarClienteComponent,
 
   ],
   imports: [
