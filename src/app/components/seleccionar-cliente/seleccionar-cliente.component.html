@@ -1,11 +1,22 @@
 <form method="POST">
-  <input type="text" class="form-control mb-4" placeholder="Buscar un cliente"
+  <input type="text" *ngIf="!nombre" class="form-control mb-4" placeholder="Buscar un cliente"
     (input)="buscarCliente($event.target.value)">
 </form>
+<div class="form-group" *ngIf="nombre">
+  <label for="">Cliente</label>
+  <div class="row">
+    <div class="col-sm-10">
+      <input type="text" [(ngModel)]="nombre" disabled class="form-control" style="padding: 1.5rem;">
+    </div>
+    <div class="col-sm-2">
+      <button (click)="cancelarCliente()" class="btn btn-danger">Cancelar</button>
+    </div>
+  </div>
+</div>
 <div class="list-group">
   <div *ngFor="let cliente of clientes">
-    <a href="#!" *ngIf="cliente.visible" class="list-group-item list-group-item-action">{{cliente.nombre}}
-      {{cliente.apellido}}</a>
+    <a *ngIf="cliente.visible" (click)="seleccionarCliente(cliente)" class="list-group-item list-group-item-action">
+      {{cliente.nombre}}{{cliente.apellido}}</a>
   </div>
 
 </div>

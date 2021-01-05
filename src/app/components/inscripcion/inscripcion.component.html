@@ -1,7 +1,20 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-lg-6">
-      <app-seleccionar-cliente></app-seleccionar-cliente>
+      <app-seleccionar-cliente [nombre]="clienteSeleccionado.nombre" (seleccionoCliente)="asignarCliente($event)"
+        (canceloCliente)="eliminarCliente()">
+      </app-seleccionar-cliente>
+
+      <div class="form control">
+        <label for="precio">Precio</label>
+        <select name="precio" id="precio" class="browser-default custom-select">
+          <option disabled>--Slecciona--</option>
+          <option *ngFor="let precio of precios">
+            {{precio.nombre}}
+          </option>
+        </select>
+      </div>
+      <button class="btn btn-success" (click)="guardar()">Guardar</button>
     </div>
     <div class="col-lg-6">
 
