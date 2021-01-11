@@ -1,23 +1,80 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-lg-6">
-      <app-seleccionar-cliente [nombre]="clienteSeleccionado.nombre" (seleccionoCliente)="asignarCliente($event)"
-        (canceloCliente)="eliminarCliente()">
+      <app-seleccionar-cliente
+        [nombre]="clienteSeleccionado.nombre"
+        (seleccionoCliente)="asignarCliente($event)"
+        (canceloCliente)="eliminarCliente()"
+      >
       </app-seleccionar-cliente>
 
-      <div class="form control">
+      <div class="form control mb-3">
         <label for="precio">Precio</label>
-        <select name="precio" id="precio" class="browser-default custom-select">
-          <option disabled>--Slecciona--</option>
-          <option *ngFor="let precio of precios">
-            {{precio.nombre}}
+        <select
+          ([(ngModel)]="selectPrecio"
+          )
+          (change)="seleccionarPrecio($event.target.value)"
+          name="precio"
+          id="precio"
+          class="browser-default custom-select"
+        >
+          <option disabled selected [value]="null">--Selecciona--</option>
+          <option *ngFor="let precio of precios" [value]="precio.id">
+            {{ precio.nombre }}
           </option>
         </select>
       </div>
-      <button class="btn btn-success" (click)="guardar()">Guardar</button>
+
+      <label for="fechaInicio">Fecha Inicio</label>
+      <input
+        type="text"
+        [value]="inscripcion.fecha | date"
+        class="form-control mb-2"
+        disabled
+      />
+
+      <label for="fechaFinal">Fecha Final</label>
+      <input
+        type="text"
+        [value]="inscripcion.fechaFinal | date"
+        class="form-control"
+        disabled
+      />
+
+      <label for="subTotal">Sub total</label>
+      <input
+        type="text"
+        [value]="inscripcion.subTotal"
+        class="form-control"
+        disabled
+      />
+      <label for="iva">IVA</label>
+      <input
+        type="text"
+        [value]="inscripcion.iva"
+        class="form-control"
+        disabled
+      />
+      <label for="total">Total</label>
+      <input
+        type="text"
+        [value]="inscripcion.total"
+        class="form-control"
+        disabled
+      />
+      <button class="btn btn-success btn-block mt-3" (click)="guardar()">
+        Guardar
+      </button>
     </div>
     <div class="col-lg-6">
-
+      <div *ngIf="clienteSeleccionado.imgUrl">
+        <img
+          [src]="clienteSeleccionado.imgUrl"
+          alt="imagen cliente"
+          class="img-fluid rounded mx-auto d-block"
+          width="250"
+        />
+      </div>
     </div>
   </div>
 </div>
