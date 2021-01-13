@@ -1,18 +1,29 @@
 <!-- Links -->
 <ul class="list-group">
   <li class="list-group-item">
-    <a class="nav-link" routerLink="/" >Inscripción </a>
+    <a class="nav-link" routerLink="/">Inscripción </a>
   </li>
 
   <li class="list-group-item">
-    <a class="nav-link" routerLink="">Ver inscripción </a>
+    <a class="nav-link" routerLink="listado-inscripciones">Ver inscripción </a>
   </li>
 
   <!-- Dropdown de clientes-->
   <li class="list-group-item dropdown" dropdown>
-    <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdownMenuLink" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">Clientes</a>
-    <div class="dropdown-menu dropdown-primary" *dropdownMenu aria-labelledby="navbarDropdownMenuLink">
+    <a
+      class="nav-link dropdown-toggle"
+      dropdownToggle
+      id="navbarDropdownMenuLink"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >Clientes</a
+    >
+    <div
+      class="dropdown-menu dropdown-primary"
+      *dropdownMenu
+      aria-labelledby="navbarDropdownMenuLink"
+    >
       <a class="dropdown-item" routerLink="añadir-clientes">Añadir cliente</a>
       <a class="dropdown-item" routerLink="listado-clientes">Ver clientes</a>
     </div>
@@ -20,15 +31,5 @@
 
   <li class="list-group-item">
     <a class="nav-link" routerLink="precios">Precios </a>
-  </li>
-  <!-- Dropdown de reportes-->
-  <li class="list-group-item dropdown" dropdown>
-    <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdownMenuLink" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">Reportes</a>
-    <div class="dropdown-menu dropdown-primary" *dropdownMenu aria-labelledby="navbarDropdownMenuLink">
-      <a class="dropdown-item" href="#">Suscripciones Diarias</a>
-      <a class="dropdown-item" href="#">Suscripciones mensuales</a>
-      <a class="dropdown-item" href="#">Más vendidas</a>
-    </div>
   </li>
 </ul>

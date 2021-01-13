@@ -29,6 +29,7 @@ import { BarralateralComponent } from './components/barralateral/barralateral.co
 import { PreciosComponent } from './components/precios/precios.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { SeleccionarClienteComponent } from './components/seleccionar-cliente/seleccionar-cliente.component';
+import { ListadoInscripcionesComponent } from './components/listado-inscripciones/listado-inscripciones.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SeleccionarClienteComponent } from './components/seleccionar-cliente/se
     PreciosComponent,
     InscripcionComponent,
     SeleccionarClienteComponent,
+    ListadoInscripcionesComponent,
 
   ],
   imports: [

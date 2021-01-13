@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AgregarclienteComponent } from './components/agregarcliente/agregarcliente.component';
 import { InscripcionComponent } from './components/inscripcion/inscripcion.component';
 import { ListadoClientesComponent } from './components/listado-clientes/listado-clientes.component';
+import { ListadoInscripcionesComponent } from './components/listado-inscripciones/listado-inscripciones.component';
 import { PreciosComponent } from './components/precios/precios.component';
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'precios',
     component: PreciosComponent,
+  },
+  {
+    path: 'listado-inscripciones',
+    component: ListadoInscripcionesComponent,
   },
 ];
 
